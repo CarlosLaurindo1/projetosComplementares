@@ -1,0 +1,524 @@
+package visualizacao;
+
+import javax.swing.JComboBox;
+import javax.swing.JOptionPane;
+
+public class EntradaSaida {
+
+	private static final boolean FALSE = false;
+
+	public static int solicitarOpcoes() {
+		String[] opcoes = { "Cadatrar conta", "Movimentar conta", "Relatórios e consultas", "Sair do programa" };
+		JComboBox<String> menu = new JComboBox<String>(opcoes);
+		JOptionPane.showConfirmDialog(null, menu, "Selecione a opção desejada", JOptionPane.OK_CANCEL_OPTION);
+		return menu.getSelectedIndex();
+	}
+
+	public static String solicitarTitular() {
+		String titular = JOptionPane.showInputDialog("Informe o nome do titular da conta: ");
+		return titular;
+	}
+
+	public static int solicitarTipoConta() {
+		int tipoConta;
+		do {
+			tipoConta = Integer
+					.parseInt(JOptionPane.showInputDialog("Informe o tipo da conta (1 - Corrente, 2 - Poupança): "));
+		} while ((tipoConta < 1) && (tipoConta > 2));
+
+		return tipoConta;
+	}
+
+	public static String solicitarDataTransacao() {
+		String data;
+		int mes;
+		int mesTransacao;
+		int dia;
+		int diaTransacao;
+		int ano;
+		int anoTransacao;
+
+		mes = EntradaSaida.solicitarMesTransacao();
+		switch (mes) {
+		case 0:
+			mesTransacao = 1;
+			break;
+		case 1:
+			mesTransacao = 2;
+			break;
+		case 2:
+			mesTransacao = 3;
+			break;
+		case 3:
+			mesTransacao = 4;
+			break;
+		case 4:
+			mesTransacao = 5;
+			break;
+		case 5:
+			mesTransacao = 6;
+			break;
+		case 6:
+			mesTransacao = 7;
+			break;
+		case 7:
+			mesTransacao = 8;
+			break;
+		case 8:
+			mesTransacao = 9;
+			break;
+		case 9:
+			mesTransacao = 10;
+			break;
+		case 10:
+			mesTransacao = 11;
+			break;
+		case 11:
+			mesTransacao = 12;
+			break;
+		}
+		if ((mes == 0) || (mes == 2) || (mes == 4) || (mes == 6) || (mes == 9) || (mes == 11) || (mes == 7)) {
+			dia = EntradaSaida.solicitarDiaMaiorMes();
+			switch (dia) {
+			case 0:
+				diaTransacao = 1;
+				break;
+			case 1:
+				diaTransacao = 2;
+				break;
+			case 2:
+				diaTransacao = 3;
+				break;
+			case 3:
+				diaTransacao = 4;
+				break;
+			case 4:
+				diaTransacao = 5;
+				break;
+			case 5:
+				diaTransacao = 6;
+				break;
+			case 6:
+				diaTransacao = 7;
+				break;
+			case 7:
+				diaTransacao = 8;
+				break;
+			case 8:
+				diaTransacao = 9;
+				break;
+			case 9:
+				diaTransacao = 10;
+				break;
+			case 10:
+				diaTransacao = 11;
+				break;
+			case 11:
+				diaTransacao = 12;
+				break;
+			case 12:
+				diaTransacao = 13;
+				break;
+			case 13:
+				diaTransacao = 14;
+				break;
+			case 14:
+				diaTransacao = 15;
+				break;
+			case 15:
+				diaTransacao = 16;
+				break;
+			case 16:
+				diaTransacao = 17;
+				break;
+			case 17:
+				diaTransacao = 18;
+				break;
+			case 18:
+				diaTransacao = 19;
+				break;
+			case 19:
+				diaTransacao = 20;
+				break;
+			case 20:
+				diaTransacao = 21;
+				break;
+			case 21:
+				diaTransacao = 22;
+				break;
+			case 22:
+				diaTransacao = 23;
+				break;
+			case 23:
+				diaTransacao = 24;
+				break;
+			case 24:
+				diaTransacao = 25;
+				break;
+			case 25:
+				diaTransacao = 26;
+				break;
+			case 26:
+				diaTransacao = 27;
+				break;
+			case 27:
+				diaTransacao = 28;
+				break;
+			case 28:
+				diaTransacao = 29;
+				break;
+			case 29:
+				diaTransacao = 30;
+				break;
+			case 30:
+				diaTransacao = 31;
+				break;
+			}
+		} else if (mes == 1) {
+			dia = EntradaSaida.solicitarDiaMenorMes();
+			switch (dia) {
+			case 0:
+				diaTransacao = 1;
+				break;
+			case 1:
+				diaTransacao = 2;
+				break;
+			case 2:
+				diaTransacao = 3;
+				break;
+			case 3:
+				diaTransacao = 4;
+				break;
+			case 4:
+				diaTransacao = 5;
+				break;
+			case 5:
+				diaTransacao = 6;
+				break;
+			case 6:
+				diaTransacao = 7;
+				break;
+			case 7:
+				diaTransacao = 8;
+				break;
+			case 8:
+				diaTransacao = 9;
+				break;
+			case 9:
+				diaTransacao = 10;
+				break;
+			case 10:
+				diaTransacao = 11;
+				break;
+			case 11:
+				diaTransacao = 12;
+				break;
+			case 12:
+				diaTransacao = 13;
+				break;
+			case 13:
+				diaTransacao = 14;
+				break;
+			case 14:
+				diaTransacao = 15;
+				break;
+			case 15:
+				diaTransacao = 16;
+				break;
+			case 16:
+				diaTransacao = 17;
+				break;
+			case 17:
+				diaTransacao = 18;
+				break;
+			case 18:
+				diaTransacao = 19;
+				break;
+			case 19:
+				diaTransacao = 20;
+				break;
+			case 20:
+				diaTransacao = 21;
+				break;
+			case 21:
+				diaTransacao = 22;
+				break;
+			case 22:
+				diaTransacao = 23;
+				break;
+			case 23:
+				diaTransacao = 24;
+				break;
+			case 24:
+				diaTransacao = 25;
+				break;
+			case 25:
+				diaTransacao = 26;
+				break;
+			case 26:
+				diaTransacao = 27;
+				break;
+			case 27:
+				diaTransacao = 28;
+				break;
+			}
+		} else {
+			dia = EntradaSaida.solicitarDiaMes();
+			switch (dia) {
+			case 0:
+				diaTransacao = 1;
+				break;
+			case 1:
+				diaTransacao = 2;
+				break;
+			case 2:
+				diaTransacao = 3;
+				break;
+			case 3:
+				diaTransacao = 4;
+				break;
+			case 4:
+				diaTransacao = 5;
+				break;
+			case 5:
+				diaTransacao = 6;
+				break;
+			case 6:
+				diaTransacao = 7;
+				break;
+			case 7:
+				diaTransacao = 8;
+				break;
+			case 8:
+				diaTransacao = 9;
+				break;
+			case 9:
+				diaTransacao = 10;
+				break;
+			case 10:
+				diaTransacao = 11;
+				break;
+			case 11:
+				diaTransacao = 12;
+				break;
+			case 12:
+				diaTransacao = 13;
+				break;
+			case 13:
+				diaTransacao = 14;
+				break;
+			case 14:
+				diaTransacao = 15;
+				break;
+			case 15:
+				diaTransacao = 16;
+				break;
+			case 16:
+				diaTransacao = 17;
+				break;
+			case 17:
+				diaTransacao = 18;
+				break;
+			case 18:
+				diaTransacao = 19;
+				break;
+			case 19:
+				diaTransacao = 20;
+				break;
+			case 20:
+				diaTransacao = 21;
+				break;
+			case 21:
+				diaTransacao = 22;
+				break;
+			case 22:
+				diaTransacao = 23;
+				break;
+			case 23:
+				diaTransacao = 24;
+				break;
+			case 24:
+				diaTransacao = 25;
+				break;
+			case 25:
+				diaTransacao = 26;
+				break;
+			case 26:
+				diaTransacao = 27;
+				break;
+			case 27:
+				diaTransacao = 28;
+				break;
+			case 28:
+				diaTransacao = 29;
+				break;
+			case 29:
+				diaTransacao = 30;
+				break;
+			}
+		}
+		ano = solicitarAnoTransacao();
+		switch (ano) {
+		case 0:
+			anoTransacao = 2000;
+			break;
+		case 1:
+			anoTransacao = 2001;
+			break;
+		case 2:
+			anoTransacao = 2002;
+			break;
+		case 3:
+			anoTransacao = 2003;
+			break;
+		case 4:
+			anoTransacao = 2004;
+			break;
+		case 5:
+			anoTransacao = 2005;
+			break;
+		case 6:
+			anoTransacao = 2006;
+			break;
+		case 7:
+			anoTransacao = 2007;
+			break;
+		case 8:
+			anoTransacao = 2008;
+			break;
+		case 9:
+			anoTransacao = 2009;
+			break;
+		case 10:
+			anoTransacao = 2010;
+			break;
+		case 11:
+			anoTransacao = 2011;
+			break;
+		case 12:
+			anoTransacao = 2012;
+			break;
+		case 13:
+			anoTransacao = 2013;
+			break;
+		case 14:
+			anoTransacao = 2014;
+			break;
+		case 15:
+			anoTransacao = 2015;
+			break;
+		case 16:
+			anoTransacao = 2016;
+			break;
+		case 17:
+			anoTransacao = 2017;
+			break;
+		case 18:
+			anoTransacao = 2018;
+			break;
+		case 19:
+			anoTransacao = 2019;
+			break;
+		case 20:
+			anoTransacao = 2020;
+			break;
+		case 21:
+			anoTransacao = 2021;
+			break;
+		case 22:
+			anoTransacao = 2022;
+			break;
+		case 23:
+			anoTransacao = 2023;
+			break;
+		}
+
+		data = JOptionPane.showInputDialog("Data da transação: " + diaTransacao + "/" + mesTransacao + "/" + anoTransacao);
+
+		return data;
+	}
+
+	public static int solicitarTipoTransacao() {
+		String[] transacao = { "Depositar", "Sacar", "Voltar ao menu anterior" };
+		JComboBox<String> tipoTransacao = new JComboBox<String>(transacao);
+		JOptionPane.showConfirmDialog(null, tipoTransacao, "Tipo transação", JOptionPane.OK_CANCEL_OPTION);
+		return tipoTransacao.getSelectedIndex();
+	}
+
+	public static int solicitarDiaMenorMes() {
+		String[] dia = { "1", "2", "3", "4", "5", "6", "7", "8", "9", "10", "11", "12", "13", "14", "15", "16", "17",
+				"18", "19", "20", "21", "22", "23", "24", "25", "26", "27", "28" };
+		JComboBox<String> diaTransacao = new JComboBox<String>(dia);
+		JOptionPane.showConfirmDialog(null, diaTransacao, "Tipo transação", JOptionPane.OK_CANCEL_OPTION);
+		return diaTransacao.getSelectedIndex();
+	}
+
+	public static int solicitarDiaMes() {
+		String[] dia = { "1", "2", "3", "4", "5", "6", "7", "8", "9", "10", "11", "12", "13", "14", "15", "16", "17",
+				"18", "19", "20", "21", "22", "23", "24", "25", "26", "27", "28", "29", "30" };
+		JComboBox<String> diaTransacao = new JComboBox<String>(dia);
+		JOptionPane.showConfirmDialog(null, diaTransacao, "Tipo transação", JOptionPane.OK_CANCEL_OPTION);
+		return diaTransacao.getSelectedIndex();
+	}
+
+	public static int solicitarDiaMaiorMes() {
+		String[] dia = { "1", "2", "3", "4", "5", "6", "7", "8", "9", "10", "11", "12", "13", "14", "15", "16", "17",
+				"18", "19", "20", "21", "22", "23", "24", "25", "26", "27", "28", "29", "30", "31" };
+		JComboBox<String> diaTransacao = new JComboBox<String>(dia);
+		JOptionPane.showConfirmDialog(null, diaTransacao, "Tipo transação", JOptionPane.OK_CANCEL_OPTION);
+		return diaTransacao.getSelectedIndex();
+	}
+
+	public static int solicitarMesTransacao() {
+		String[] mes = { "Janeiro", "Fevereiro", "Março", "Abril", "Maio", "Junho", "Julho", "Agosto", "Setembro",
+				"Outubro", "Novembro", "Dezembro" };
+		JComboBox<String> mesTransacao = new JComboBox<String>(mes);
+		JOptionPane.showConfirmDialog(null, mesTransacao, "Tipo transação", JOptionPane.OK_CANCEL_OPTION);
+		return mesTransacao.getSelectedIndex();
+	}
+
+	public static int solicitarAnoTransacao() {
+		String[] ano = { "2000", "2001", "2002", "2003", "2004", "2005", "2006", "2007", "2008", "2009", "2010", "2011",
+				"2012", "2013", "2014", "2015", "2016", "2017", "2018", "2019", "2020", "2021", "2022", "2023" };
+		JComboBox<String> anoTransacao = new JComboBox<String>(ano);
+		JOptionPane.showConfirmDialog(null, anoTransacao, "Tipo transação", JOptionPane.OK_CANCEL_OPTION);
+		return anoTransacao.getSelectedIndex();
+	}
+
+	public static int confirmarRelatorio() {
+		String[] relatorio = { "Dados da conta", "Saldo", "Extrato completo", "Extrato de entrada",
+				"Extrato de saídas" };
+		JComboBox<String> tipoRelatorio = new JComboBox<String>(relatorio);
+		JOptionPane.showConfirmDialog(null, tipoRelatorio, "Tipo relatório", JOptionPane.OK_CANCEL_OPTION);
+		return tipoRelatorio.getSelectedIndex();
+	}
+
+	public static double solicitarValorTransacao() {
+		double valorTransacao;
+
+		valorTransacao = Integer.parseInt(JOptionPane.showInputDialog("Informe o valor da transação: "));
+
+		return valorTransacao;
+	}
+
+	public static double confirmarValorDepositoInicial() {
+		double valorTransacaoEntrada = 0.00;
+		int confDepositoinicial;
+
+		confDepositoinicial = Integer
+				.parseInt(JOptionPane.showInputDialog("Deseja realizar depósito inicial? (1 - Sim, 2 - Não): "));
+		while ((confDepositoinicial < 1) || (confDepositoinicial > 2)) {
+			JOptionPane.showMessageDialog(null,
+					"Transação selecionada é inválida! \n Deseja realizar depósito inicial? (1 - Sim, 2 - Não): ");
+		}
+
+		if (confDepositoinicial == 1) {
+			valorTransacaoEntrada = Integer.parseInt(JOptionPane.showInputDialog("Informe o valor da transação: "));
+		} else if (confDepositoinicial == 2) {
+			valorTransacaoEntrada = 0.00;
+		}
+
+		return valorTransacaoEntrada;
+	}
+
+}

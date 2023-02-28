@@ -1,0 +1,59 @@
+package modelo;
+
+import visualizacao.*;
+
+public class Movimentacao {
+
+	private int tipo;
+	private String titular;
+	private double saldo;
+	private String data;
+
+	public String getTitular() {
+		return titular;
+	}
+
+	public void setTitular() {
+		this.titular = titular;
+	}
+
+	public int getTipo() {
+		return tipo;
+	}
+
+	public void setTipo(int tipo) {
+		this.tipo = tipo;
+	}
+
+	public double getSaldo() {
+		return saldo;
+	}
+
+	public void setSaldo(double saldo) {
+		this.saldo = saldo;
+	}
+
+	public String getData() {
+		return data;
+	}
+
+	public void setData(String data) {
+		this.data = data;
+	}
+
+	public void apresentarDadosTitular() {
+		getTitular();
+	}
+
+	public void apresentarSaldo() {
+		getSaldo();
+	}
+
+	public void constroiExtratoCompleto(String titular, int tipo, double valor, String data) {
+		setTitular(titular);
+		setTipo(tipo);
+		setValor(saldo);
+		setData(data);
+	}
+
+}

@@ -1,0 +1,50 @@
+package controle;
+
+import modelo.Conta;
+import visualizacao.*;
+
+import javax.swing.JOptionPane;
+
+import modelo.*;
+
+public class Controladora {
+	public void exibeMenu() {
+		int opcao;
+		int transacao;
+
+		opcao = EntradaSaida.solicitarOpcoes();
+
+		do {
+			switch (opcao) {
+			case 0:
+				EntradaSaida.solicitarTitular();
+				EntradaSaida.solicitarTipoConta();
+				EntradaSaida.confirmarValorDepositoInicial();
+				break;
+			case 1:
+				transacao = EntradaSaida.solicitarTipoTransacao();
+				switch (transacao) {
+				case 0:
+					JOptionPane.showMessageDialog(null, "Insira o valor do depósito: ");
+					EntradaSaida.solicitarValorTransacao();
+					break;
+				case 1:
+					JOptionPane.showMessageDialog(null, "Insira o valor do depósito: ");
+					EntradaSaida.solicitarValorTransacao();
+					break;
+				case 2:
+				}
+				break;
+			case 2:
+				System.exit(0);
+				break;
+			case 3:
+				System.exit(0);
+				break;
+			}
+		} while (opcao != 2);
+		// EntradaSaida.exibeMsgEncerraPrograma();
+
+	}
+
+}

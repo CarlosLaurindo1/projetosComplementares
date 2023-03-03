@@ -1,0 +1,74 @@
+package controle;
+
+import modelo.Conta;
+import visualizacao.*;
+import javax.swing.JOptionPane;
+import modelo.*;
+
+public class Controladora {
+	public void exibeMenu() {
+		int opcao;
+		boolean contaCriada = false;
+		int mes;
+		int transacao;
+		int relatorio;
+		int totalTransacao = 0;
+
+		Conta conta = new Conta();
+		String titular = EntradaSaida.solicitarTitular();
+		String dataNascimento = EntradaSaida.solicitarData("de Nascimento");
+		long cpf = EntradaSaida.solicitarCpfTitular();
+		int tipo = EntradaSaida.solicitarTipoConta();
+		double saldo = EntradaSaida.confirmarValorDepositoInicial();
+		if (saldo != 0) {
+			totalTransacao += 1;
+		}
+		contaCriada = true;
+		do {
+			opcao = EntradaSaida.solicitarOpcoes();
+			switch (opcao) {
+			case 0:
+				break;
+			case 1:
+				break;
+			case 2:
+				break;
+			case 3:
+				break;
+			case 4:
+				break;
+			case 5:
+				break;
+			case 6:
+				break;
+			case 7:
+				
+			}
+
+			/*
+			 * switch (transacao) { case 0: totalTransacao += 1;
+			 * 
+			 * if (contaCriada == false) { EntradaSaida.confirmaContaCriada(); } else {
+			 * JOptionPane.showMessageDialog(null, "Opção selecionada: Depósito.");
+			 * EntradaSaida.solicitarData("da Transação");
+			 * EntradaSaida.solicitarValorTransacao(); } break; case 1: totalTransacao += 1;
+			 * if (contaCriada == false) { EntradaSaida.confirmaContaCriada(); } else {
+			 * 
+			 * JOptionPane.showMessageDialog(null, "Opção selecionada: Saque.");
+			 * EntradaSaida.solicitarData("da Transação");
+			 * EntradaSaida.solicitarValorTransacao(); } break; case 2: } break; case 1:
+			 * relatorio = EntradaSaida.confirmarRelatorio(); switch (relatorio) { case 0:
+			 * if (contaCriada == false) { EntradaSaida.confirmaContaCriada(); } else {
+			 * conta.construirInfoTitular(); } break; case 1: break;
+			 * 
+			 * case 2: break;
+			 * 
+			 * case 3: break; } break; case 2: System.exit(0); break;
+			 */
+
+		} while (opcao != 7);
+		// EntradaSaida.exibeMsgEncerraPrograma();
+
+	}
+
+}

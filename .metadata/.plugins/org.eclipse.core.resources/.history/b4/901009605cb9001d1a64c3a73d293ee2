@@ -1,0 +1,90 @@
+package visualizacao;
+
+import javax.swing.JComboBox;
+import javax.swing.JOptionPane;
+
+public class EntradaSaida {
+
+	private static final boolean FALSE = false;
+
+	public static int solicitarOpcoes() {
+		String[] opcoes = { "Movimentar conta", "Relatórios e consultas", "Sair do programa" };
+		JComboBox<String> menu = new JComboBox<String>(opcoes);
+		JOptionPane.showConfirmDialog(null, menu, "Selecione a opção desejada", JOptionPane.OK_CANCEL_OPTION);
+		return menu.getSelectedIndex();
+	}
+
+	public static String solicitarTitular() {
+		String titular = JOptionPane.showInputDialog("Informe o nome do titular da conta: ");
+		return titular;
+	}
+
+	public static long solicitarCpfTitular() {
+		long titular = Long.parseLong(JOptionPane.showInputDialog("Informe o CPF do titular da conta: "));
+		return titular;
+	}
+
+	public static int solicitarTipoConta() {
+		String[] conta = { "Conta Corrente", "Conta Poupança" };
+		JComboBox<String> tipoConta = new JComboBox<String>(conta);
+		JOptionPane.showConfirmDialog(null, tipoConta, "Selecione o tipo de conta", JOptionPane.OK_CANCEL_OPTION);
+		return tipoConta.getSelectedIndex();
+	}
+
+	public static int solicitarTipoTransacao() {
+		String[] transacao = { "Depositar", "Sacar", "Voltar ao menu anterior" };
+		JComboBox<String> tipoTransacao = new JComboBox<String>(transacao);
+		JOptionPane.showConfirmDialog(null, tipoTransacao, "Tipo transação", JOptionPane.OK_CANCEL_OPTION);
+		return tipoTransacao.getSelectedIndex();
+	}
+
+	public static String solicitarData(String tipoData) {
+		String data;
+
+		data = JOptionPane.showInputDialog("Informe a data " + tipoData + ": ");
+
+		return data;
+	}
+
+	public static int confirmarRelatorio() {
+		String[] relatorio = { "Dados da conta", "Saldo", "Extrato completo", "Extrato de entrada",
+				"Extrato de saídas" };
+		JComboBox<String> tipoRelatorio = new JComboBox<String>(relatorio);
+		JOptionPane.showConfirmDialog(null, tipoRelatorio, "Tipo relatório", JOptionPane.OK_CANCEL_OPTION);
+		return tipoRelatorio.getSelectedIndex();
+	}
+
+	public static double solicitarValorTransacao() {
+		double valorTransacao;
+
+		valorTransacao = Integer.parseInt(JOptionPane.showInputDialog("Informe o valor da transação: "));
+
+		return valorTransacao;
+	}
+
+	public static double confirmarValorDepositoInicial() {
+		double valorTransacaoEntrada = 0.00;
+		int confDepositoinicial;
+
+		confDepositoinicial = Integer
+				.parseInt(JOptionPane.showInputDialog("Deseja realizar depósito inicial? (1 - Sim, 2 - Não): "));
+		while ((confDepositoinicial < 1) || (confDepositoinicial > 2)) {
+			JOptionPane.showMessageDialog(null,
+					"Transação selecionada é inválida! \n Deseja realizar depósito inicial? (1 - Sim, 2 - Não): ");
+		}
+
+		if (confDepositoinicial == 1) {
+			valorTransacaoEntrada = Integer.parseInt(JOptionPane.showInputDialog("Informe o valor da transação: "));
+		} else if (confDepositoinicial == 2) {
+			valorTransacaoEntrada = 0.00;
+		}
+
+		return valorTransacaoEntrada;
+	}
+
+	public static void confirmaContaCriada() {
+		JOptionPane.showMessageDialog(null, "Não existe nenhuma conta criada."
+				+ "\nPor favor, realize o cadastro da conta bancária e realize esta operação posteriormente.");
+	}
+
+}

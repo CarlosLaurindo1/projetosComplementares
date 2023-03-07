@@ -1,0 +1,71 @@
+package modelo;
+
+import java.util.ArrayList;
+import javax.swing.JComboBox;
+import javax.swing.JOptionPane;
+import visualizacao.*;
+import modelo.Movimentacao;
+
+public class Conta {
+
+	private ArrayList<Movimentacao> listaDeMovimentacao = new ArrayList<Movimentacao>();
+
+	public ArrayList<Movimentacao> listaDeMovimentacao() {
+		return listaDeMovimentacao;
+	}
+
+	public void setListaDeMovimentacao(ArrayList<Movimentacao> listaDeMovimentacao) {
+		this.listaDeMovimentacao = listaDeMovimentacao;
+	}
+
+	public void gerarExtrato(Movimentacao movimentacao) {
+		listaDeMovimentacao.add(movimentacao);
+	}
+
+	public void construirInfoTitular() {
+		String informacao = "";
+		informacao += "Nome titular: " + Movimentacao.getTitular() + "\n";
+		informacao += "Data de Nascimento: " + Movimentacao.getDataNascimento() + "\n";
+		informacao += "CPF: " + Movimentacao.getCpf() + "\n";
+		informacao += "Tipo de conta: " + Movimentacao.getTipoConta() + "\n ------------- \n";
+		JOptionPane.showMessageDialog(null, informacao);
+	}
+
+	public void construirExtrato() {
+		String informacao = "";
+		informacao += "Nome titular: " + Movimentacao.getTitular() + "\n";
+		informacao += "Data de Nascimento: " + Movimentacao.getDataNascimento() + "\n";
+		informacao += "CPF: " + Movimentacao.getCpf() + "\n";
+		informacao += "Tipo de conta: " + Movimentacao.getTipoConta() + "\n ------------- \n";
+
+		for (int i = 0; i < listaDeMovimentacao.size(); i++) {
+			Movimentacao movimentacao = listaDeMovimentacao.get(i);
+
+		}
+		JOptionPane.showMessageDialog(null, informacao);
+	}
+
+	public void depositar(String titularDaConta, int tipo, double saldo) {
+		double saldoFinal = 0.00;
+
+		String informacao = "";
+
+		 for (int i = 0; i < listaDeMovimentacao.size(); i++) { Movimentacao
+		 movimentacao = listaDeMovimentacao.get(i); if
+		 (movimentacao.getTitular().equals(titularDaConta)) } if (tipo == 1) {
+		 
+		 } else {
+		  
+		 }
+		 
+	}
+
+	public void sacar(String titularDaConta, int tipo, double saldo) {
+		if (tipo == 1) {
+
+		} else {
+
+		}
+	}
+
+}

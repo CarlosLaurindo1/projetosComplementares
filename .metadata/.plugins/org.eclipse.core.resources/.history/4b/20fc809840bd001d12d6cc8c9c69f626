@@ -1,0 +1,88 @@
+package visualizacao;
+
+import javax.swing.JComboBox;
+import javax.swing.JOptionPane;
+
+public class EntradaSaida {
+
+	private static final boolean FALSE = false;
+
+	public static int solicitarOpcoes() {
+		String[] opcoes = { "Depósito", "Saque", "Saldo", "Extrato completo", "Extrato Entradas", "Extratto saídas",
+				"Informações do titular", "Sair do programa" };
+		JComboBox<String> menu = new JComboBox<String>(opcoes);
+		JOptionPane.showConfirmDialog(null, menu, "Selecione a opção desejada", JOptionPane.OK_CANCEL_OPTION);
+		return menu.getSelectedIndex();
+	}
+
+	public static String solicitarTitular() {
+		String titular = JOptionPane.showInputDialog("Informe o nome do titular da conta: ");
+		return titular;
+	}
+
+	public static long solicitarCpfTitular() {
+		long titular = Long.parseLong(JOptionPane.showInputDialog("Informe o CPF do titular da conta: "));
+		return titular;
+	}
+
+	public static String solicitarTipoConta() {
+		int codConta;
+		String tipoConta;
+
+		codConta = Integer.parseInt(
+				JOptionPane.showInputDialog("Qual o tipo de conta que deseja criar? (1 - Corrente, 2 - Poupança): "));
+		while ((codConta < 1) || (codConta > 2)) {
+			JOptionPane.showMessageDialog(null,
+					"Tipo de conta selecionada é inválida! \n Qual o tipo de conta que deseja criar? (1 - Corrente, 2 - Poupança): ");
+		}
+
+		if (codConta==1) {
+			tipoConta = "Corrente";
+		} else if (codConta==2) {
+			tipoConta = "Poupança";
+		}
+		return tipoConta;
+	}
+
+	public static String solicitarData(String tipoData) {
+		String data;
+
+		data = JOptionPane.showInputDialog("Informe a data " + tipoData + ": ");
+
+		return data;
+	}
+
+	public static double solicitarValorTransacao() {
+		double valorTransacao;
+
+		valorTransacao = Integer.parseInt(JOptionPane.showInputDialog("Informe o valor da transação: "));
+
+		return valorTransacao;
+	}
+
+	public static double confirmarValorDepositoInicial() {
+		double valorTransacaoEntrada = 0.00;
+		int confDepositoinicial;
+
+		confDepositoinicial = Integer
+				.parseInt(JOptionPane.showInputDialog("Deseja realizar depósito inicial? (1 - Sim, 2 - Não): "));
+		while ((confDepositoinicial < 1) || (confDepositoinicial > 2)) {
+			JOptionPane.showMessageDialog(null,
+					"Transação selecionada é inválida! \n Deseja realizar depósito inicial? (1 - Sim, 2 - Não): ");
+		}
+
+		if (confDepositoinicial == 1) {
+			valorTransacaoEntrada = Integer.parseInt(JOptionPane.showInputDialog("Informe o valor da transação: "));
+		} else if (confDepositoinicial == 2) {
+			valorTransacaoEntrada = 0.00;
+		}
+
+		return valorTransacaoEntrada;
+	}
+
+	public static void confirmaContaCriada() {
+		JOptionPane.showMessageDialog(null, "Não existe nenhuma conta criada."
+				+ "\nPor favor, realize o cadastro da conta bancária e realize esta operação posteriormente.");
+	}
+
+}

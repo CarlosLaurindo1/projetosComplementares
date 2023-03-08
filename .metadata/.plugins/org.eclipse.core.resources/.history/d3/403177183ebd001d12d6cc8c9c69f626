@@ -1,0 +1,90 @@
+package controle;
+
+import visualizacao.*;
+
+import java.util.ArrayList;
+
+import javax.swing.JOptionPane;
+import modelo.*;
+
+public class Controladora {
+	private Conta conta = new Conta();
+	private Movimentacao movimentacao = null;
+
+	public void exibeMenu() {
+		int opcao;
+		boolean contaCriada = false;
+		int mes;
+		int transacao = 0;
+		int relatorio;
+		int totalTransacao = 0;
+		double valorTransacao = 0;
+
+		Movimentacao movimentacao = new Movimentacao();
+		String titular = EntradaSaida.solicitarTitular();
+		String data = EntradaSaida.solicitarData("de Nascimento");
+		long cpf = EntradaSaida.solicitarCpfTitular();
+		int tipoConta = EntradaSaida.solicitarTipoConta();
+		double saldoAtualizado = EntradaSaida.confirmarValorDepositoInicial();
+		if (saldoAtualizado != 0) {
+			totalTransacao += 1;
+			transacao = 1;
+		}
+
+		movimentacao.constroiInfoTitular(titular, data, cpf, tipoConta);
+		this.conta.setInfoDoTitular(ArrayList<Movimentacao> movimentacao);
+		contaCriada = true;
+		do {
+			opcao = EntradaSaida.solicitarOpcoes();
+			switch (opcao) {
+			case 0:
+				JOptionPane.showMessageDialog(null, "Opção selecionada: Depósito.");
+				totalTransacao += 1;
+				transacao = 1;
+				EntradaSaida.solicitarData("da Transação");
+				valorTransacao = EntradaSaida.solicitarValorTransacao();
+				saldoAtualizado = saldoAtualizado + valorTransacao;
+				break;
+			case 1:
+				JOptionPane.showMessageDialog(null, "Opção selecionada: Saque.");
+				totalTransacao += 1;
+				transacao = 2;
+				EntradaSaida.solicitarData("da Transação");
+				valorTransacao = EntradaSaida.solicitarValorTransacao();
+				saldoAtualizado = saldoAtualizado - valorTransacao;
+				if (saldoAtualizado <= -1000) {
+					saldoAtualizado = saldoAtualizado + valorTransacao;
+					JOptionPane.showMessageDialog(null, "Valor limite foi ultrapassado, a operação não foi permitida."
+							+ "\n limite adicional é de R$1000,00. O saldo atual é de R$ " + saldoAtualizado);
+				}
+				break;
+			case 2:
+				JOptionPane.showMessageDialog(null,
+						"Opção selecionada: Saldo. \n" + "O Saldo atual é de R$: " + saldoAtualizado);
+				break;
+			case 3:
+				JOptionPane.showMessageDialog(null, "Opção selecionada: Extrato completo.");
+				// conta.construirExtrato(transacao);
+				break;
+			case 4:
+				break;
+			case 5:
+				break;
+			case 6:
+				// conta.construirInfoTitular();
+				break;
+			case 7:
+				break;
+			}
+
+		} while (opcao != 7);
+		// EntradaSaida.exibeMsgEncerraPrograma();
+
+	}
+
+	private Conta[] Conta() {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
+}

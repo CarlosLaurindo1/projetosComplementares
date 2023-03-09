@@ -1,0 +1,73 @@
+package controle;
+
+import visualizacao.*;
+
+import java.util.ArrayList;
+
+import javax.swing.JOptionPane;
+import modelo.*;
+
+public class Controladora {
+	private Conta conta = new Conta();
+	Movimentacao movimentacao = new Movimentacao();
+
+	public void exibeMenu() {
+		int opcao;
+		String informacoes;
+		boolean contaCriada = false;
+		double saldo;
+		int mes;
+		int transacao = 0;
+		int totalTransacao = 0;
+		double valorTransacao = 0;
+
+		conta.constroiInfoTitular();
+		double saldoAtualizado = EntradaSaida.confirmarValorDepositoInicial();
+		if (saldoAtualizado != 0) {
+			totalTransacao += 1;
+			transacao = 1;
+		}
+
+		contaCriada = true;
+		do {
+			opcao = EntradaSaida.solicitarOpcoes();
+			switch (opcao) {
+			case 0:
+				JOptionPane.showMessageDialog(null, "Opção selecionada: Depósito.");
+				conta.depositar();
+				break;
+			case 1:
+				JOptionPane.showMessageDialog(null, "Opção selecionada: Saque.");
+				conta.sacar();
+				break;
+			case 2:
+				saldo = conta.saldo();
+				EntradaSaida.exibirSaldo(saldo);
+				
+				break;
+			case 3:
+				JOptionPane.showMessageDialog(null, "Opção selecionada: Extrato completo.");
+				conta.construirExtrato(transacao);
+				break;
+			case 4:
+				break;
+			case 5:
+				break;
+			case 6:
+				conta.relatorioInfoTitular();
+				break;
+			case 7:
+				break;
+			}
+
+		} while (opcao != 7);
+		// EntradaSaida.exibeMsgEncerraPrograma();
+
+	}
+
+	private Conta[] Conta() {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
+}

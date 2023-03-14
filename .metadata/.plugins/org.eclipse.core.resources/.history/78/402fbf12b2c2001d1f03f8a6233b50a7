@@ -1,0 +1,94 @@
+package modelo;
+
+import java.util.ArrayList;
+import javax.swing.JComboBox;
+import javax.swing.JOptionPane;
+import visualizacao.*;
+import modelo.Movimentacao;
+
+public class Conta {
+	double saldoAtualizado;
+
+	Movimentacao movimentacao = new Movimentacao();
+
+	private ArrayList<Movimentacao> listaDeMovimentacao = new ArrayList<Movimentacao>();
+	private ArrayList<Movimentacao> infoDoTitular = new ArrayList<Movimentacao>();
+
+	public ArrayList<Movimentacao> listaDeMovimentacao() {
+		return listaDeMovimentacao;
+	}
+
+	public void setListaDeMovimentacao(ArrayList<Movimentacao> listaDeMovimentacao) {
+		this.listaDeMovimentacao = listaDeMovimentacao;
+	}
+
+	public void gerarExtrato(Movimentacao movimentacao) {
+		listaDeMovimentacao.add(movimentacao);
+	}
+
+	public ArrayList<Movimentacao> infoDoTitular() {
+		return infoDoTitular;
+	}
+
+	public void setInfoDoTitular(ArrayList<Movimentacao> movimentacao) {
+		this.infoDoTitular = movimentacao;
+	}
+
+	public void geraInfoTitular(Movimentacao movimentacao) {
+		infoDoTitular.add(movimentacao);
+	}
+
+	public double getSaldo() {
+		return saldoAtualizado;
+	}
+
+	public void setSaldo(double saldoAtualizado) {
+		this.saldoAtualizado = saldoAtualizado;
+	}
+
+	public void relatorioInfoTitular() {
+		String informacao = "";
+		informacao += "Nome titular: " + Movimentacao.getTitular() + "\n";
+		informacao += "Data de Nascimento: " + Movimentacao.getDataNascimento() + "\n";
+		informacao += "CPF: " + Movimentacao.getCpf() + "\n";
+		informacao += "Tipo de conta: " + Movimentacao.getTipoConta() + "\n ------------- \n";
+		JOptionPane.showMessageDialog(null, informacao);
+	}
+
+	public void constroiInfoTitular() {
+		movimentacao.setTitular(EntradaSaida.solicitarTitular());
+		movimentacao.setDataNascimento(EntradaSaida.solicitarData("de Nascimento"));
+		movimentacao.setCpf(EntradaSaida.solicitarCpfTitular());
+		movimentacao.setTipoConta(EntradaSaida.solicitarTipoConta());
+	}
+
+
+
+	public void depositar() {
+		double valorMov;
+		movimentacao.setData(EntradaSaida.solicitarData("da Transação"));
+		movimentacao.setValorDep(EntradaSaida.solicitarValorTransacao());
+		listaDeMovimentacao.add(movimentacao);
+		listaDeMovimentacao.size();
+	}
+
+	public void sacar() {
+		double valorMov;
+		movimentacao.setData(EntradaSaida.solicitarData("da Transação"));
+		movimentacao.setValorSaq(EntradaSaida.solicitarValorTransacao());
+		listaDeMovimentacao.add(movimentacao);
+		listaDeMovimentacao.size();
+	}
+
+	public void construirExtrato(int transacao) {
+		String informacao = "Titular da conta:" + movimentacao.getTitular() + "\nData de nascimento"
+				+ movimentacao.getDataNascimento() + "\nCPF do titular: " + movimentacao.getCpf() + "nTipo da conta: "
+				+ movimentacao.getTipoConta();
+
+		for (int i = 0; i < listaDeMovimentacao.size(); i++) {
+			Movimentacao m = listaDeMovimentacao.get(i);
+
+		}
+		JOptionPane.showMessageDialog(null, informacao);
+	}
+}
